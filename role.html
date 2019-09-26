@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>AdminLTE 2 | Starter</title>
+		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+		<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.min.css">
+		<link rel="stylesheet" href="bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+		<link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+		<link rel="stylesheet" href="dist/css/skins/skin-blue.min.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+		<link rel="stylesheet" href="bower_components/bootstrap-daterangepicker/daterangepicker.css">
+	</head>
+
+	<body class="hold-transition skin-blue sidebar-mini">
+		<div class="wrapper">
+			<div class="content-wrapper">
+				<section class="content-header">
+					<ol class="breadcrumb">
+						<li>
+							<a href="#"><i class="fa fa-dashboard"></i> 用户管理</a>
+						</li>
+						<li class="active">角色管理</li>
+					</ol>
+
+				</section>
+				<section class="content">
+					<div class="box box-success">
+						<div class="box-header with-border">
+							角色管理
+						</div>
+						<!-- /.box-header -->
+						<div class="box-body">
+							<div class="fr_condition">
+								<div class="row">
+									<div class="col-xs-6 col-sm-3">
+										<div class="input-group margin">
+											<div class="input-group-btn">
+												<button type="button" class="btn btn-default" aria-expanded="false">角色名称</button>
+											</div>
+											<!-- /btn-group -->
+											<input type="text" class="form-control">
+										</div>
+									</div>
+									<div class="col-xs-6 col-sm-3">
+										<button type="button" class="btn bg-primary margin"><i class="fa fa-search"></i>&nbsp;搜索</button>
+									</div>
+									<div class="col-xs-12">
+
+										<div class="fixed-table-toolbar margin">
+											<div class="bs-bars pull-left">
+												<div class="hidden-xs" id="managerTableToolbar" role="group">
+													<button type="button" class="btn btn-primary " onclick="addUser()" id="">
+    <i class="fa fa-plus"></i>&nbsp;添加</button>
+													<button type="button" class="btn btn-primary button-margin" onclick="MgrUser.openChangeUser()" id="">
+    <i class="fa fa-edit"></i>&nbsp;修改</button>
+													<button type="button" class="btn btn-primary button-margin" onclick="deleteUser()" id="">
+    <i class="fa fa-remove"></i>&nbsp;删除</button>
+													<button type="button" class="btn btn-primary button-margin" onclick="MgrUser.roleAssign()" id="">
+    <i class="fa fa-user-secret"></i>&nbsp;权限配置</button>
+												</div>
+											</div>
+											<!--<div class="columns columns-right btn-group pull-right"><button class="btn btn-default btn-outline" type="button" name="refresh" aria-label="refresh" title="刷新"><i class="glyphicon glyphicon-repeat"></i></button>
+												<div class="keep-open btn-group" title="列"><button type="button" aria-label="columns" class="btn btn-default btn-outline dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-list"></i> <span class="caret"></span></button>
+													<ul class="dropdown-menu" role="menu">
+														<li role="menuitem"><label><input type="checkbox" data-field="id" value="1" checked="checked"> id</label></li>
+														<li role="menuitem"><label><input type="checkbox" data-field="account" value="2" checked="checked"> 账号</label></li>
+														<li role="menuitem"><label><input type="checkbox" data-field="nickName" value="3" checked="checked"> 昵称</label></li>
+														<li role="menuitem"><label><input type="checkbox" data-field="mobile" value="4" checked="checked"> 电话</label></li>
+														<li role="menuitem"><label><input type="checkbox" data-field="code" value="5" checked="checked"> 上级ID</label></li>
+														<li role="menuitem"><label><input type="checkbox" data-field="userPhoto" value="6" checked="checked"> 头像</label></li>
+														<li role="menuitem"><label><input type="checkbox" data-field="point" value="7" checked="checked"> 余额</label></li>
+														<li role="menuitem"><label><input type="checkbox" data-field="loginTime" value="8" checked="checked"> 最近上线时间</label></li>
+														<li role="menuitem"><label><input type="checkbox" data-field="statusName" value="9" checked="checked"> 状态</label></li>
+														<li role="menuitem"><label><input type="checkbox" data-field="remark" value="10" checked="checked"> 备注</label></li>
+													</ul>
+												</div>-->
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12">
+								<!-- /.box-header -->
+								<div class="box-body">
+									<table id="example" class="display nowrap table table-bordered table-striped" style="width:100%;">
+										<thead>
+											<tr>
+												<th></th>
+												<th>名称</th>
+												<th>上级角色</th>
+												<th>所有部门</th>
+												<th>别名</th>
+											</tr>
+										</thead>
+										<tbody></tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+		<script src="bower_components/jquery/dist/jquery.min.js"></script>
+		<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+		<script src="bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+		<script src="dist/js/adminlte.min.js"></script>
+		<script src="js/nav.js"></script>
+		<script src="js/pop.js"></script>
+		<script src="js/fina_fun.js"></script>
+		<script src="js/finance.js"></script>
+		<script type="text/javascript">
+			// 添加
+				function addSave(){
+					console.log(1);
+				}
+				function addUser(){
+					var addJson = {
+						name:"addUser",
+						title:"title",
+						arg:{
+							"account":{
+								name:"角色名称",
+								type:"text"
+							},
+							"name":{
+								name:"别名",
+								type:"text"
+							},"password":{
+								name:"上级名称",
+								type:"password",
+							},
+							"rePassword":{
+								name:"排序",
+								type:"password",
+							}
+						},//参数
+					};
+					addModal(addJson,'addSave');
+				}
+				
+				// 删除
+				function deleteSave(){
+					console.log("delete");
+				}
+				function deleteUser(){
+					var deleteJson = {
+						name:"deleteUser",
+						title:"title",
+						arg:{
+							id:"id",
+							name:"name"
+						}
+					};
+					deleteModal(deleteJson,'deleteSave');
+				}
+				
+				
+				//
+				
+				
+		</script>
+		<script type="text/javascript">
+//			move("success", "text")
+//			move("error", "text")
+
+
+			var table = $('#example').DataTable({
+				'ordering': false,
+				'lengthChange': false,
+				'searching': false,
+				'info': true,
+				"processing": true,
+				"serverSide": true,
+				"ajax": {
+					"type": 'post',
+					"url": url + "/financial/unReviewDrawList",
+					"contentType": "application/json",
+					"data": function(d) {
+						console.log(d);
+						var data = {
+							curPage: d.start / 10 + 1,
+							pageSize: d.length,
+							phone: $('#phone').val(),
+							token: localStorage.getItem('fr_token'),
+						}
+						return JSON.stringify(data)
+					},
+					"dataFilter": function(data) {
+						//										var data1 = eval('(' + data + ')');
+						//										var datajson = eval('(' + data1 + ')');;
+						console.log(data)
+						//										if(datajson.returnCode == 501) {
+						//											ToLogin(datajson)
+						//										} else if(datajson.returnCode == 500) {
+						//											alert(datajson.msg)
+						//											return false;
+						//										}
+						var json = {};
+						//									json.recordsTotal = datajson.total;
+						//									json.recordsFiltered = datajson.total;
+						json.recordsTotal = 2;
+						json.recordsFiltered = 2;
+						json.data = [{
+								id: 1,
+								account: "account1",
+								name: "name1",
+								phone: "phone1",
+								up: "up1",
+								pic: 11,
+								money: 121,
+								time: 1341,
+								state: 11,
+								des: 11,
+							},
+							{
+								id: 2,
+								account: "account2",
+								name: 1,
+								phone: 2,
+								up: 3,
+								pic: 4,
+								money: 5,
+								time: 6,
+								state: 7,
+								des: 8,
+							}
+						];
+						console.log(json);
+						return JSON.stringify(json);
+					}
+				},
+				"columns": [{
+						data: null,
+						render: function(data) {
+							return '<input type="radio" name="tableRadio" value="' + data.id + '">';
+						}
+					},
+					{
+						data: 'id'
+					},
+					{
+						data: 'account'
+					},
+					{
+						data: 'name',
+
+					},
+					{
+						data: 'phone',
+
+					},
+					{
+						data: 'up',
+
+					},
+					{
+						data: 'pic',
+
+					},
+					{
+						data: 'money',
+
+					},
+					{
+						data: 'time',
+
+					},
+					{
+						data: 'state',
+
+					},
+					{
+						data: 'des',
+
+					}
+				]
+			})
+		</script>
+	</body>
+</html>

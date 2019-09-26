@@ -1,0 +1,205 @@
+The MIT License (MIT)
+
+Copyright (c) 2014-2017 Abdullah Almsaeed
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+//<div class="modal fade" id="order_add_modal">
+//			<div class="modal-dialog">
+//				<div class="modal-content">
+//					<div class="modal-header">
+//						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+//                						<span aria-hidden="true">&times;</span>
+//									</button>
+//						<h4 class="modal-title">订单添加</h4>
+//					</div>
+//					<div class="modal-body">
+//						<form class="form-horizontal">
+//							<div class="box-body">
+//								<div class="form-group">
+//									<label for="account" class="col-sm-3 control-label">所属项目</label>
+//									<div class="col-sm-9">
+//										<select type="text" class="form-control p_id" name="p_id"></select>
+//									</div>
+//								</div>
+//								<div class="form-group">
+//									<label for="account" class="col-sm-3 control-label">所属项目类型</label>
+//									<div class="col-sm-9">
+//										<select type="text" class="form-control t_id" name="t_id"></select>
+//									</div>
+//								</div>
+//								<div class="form-group">
+//									<label for="account" class="col-sm-3 control-label">订单名称</label>
+//									<div class="col-sm-9">
+//										<input type="text" class="form-control" name="order_name">
+//									</div>
+//								</div>
+//								<div class="form-group">
+//									<label for="account" class="col-sm-3 control-label">金额</label>
+//									<div class="col-sm-9">
+//										<input type="text" class="form-control" name="money">
+//									</div>
+//								</div>
+//								<div class="form-group">
+//									<label  class="col-sm-3 control-label">照片</label>
+//
+//									<div class="col-sm-9">
+//										<label for="addPicInput" style="width:100%;height:150px;">
+//											<img src = "img/add.png" id="editPic" style="display:block;max-height:100%;">
+//										</label>
+//										<input type="file" id="addPicInput" class="pic" accept="image/*" capture="camera" style="display:none;">
+//										<input type="hidden" class="picId" />
+//										<!--<i>*上传照片</i>-->
+//									</div>
+//								</div>
+//								<div class="form-group">
+//									<label for="account" class="col-sm-3 control-label">附件</label>
+//									<div class="col-sm-9">
+//										<input type="file" class="form-control" name="fujian">
+//										<input type="hidden" class="addfujianId" />
+//									</div>
+//								</div>
+//								<div class="form-group">
+//									<label for="account" class="col-sm-3 control-label">币种</label>
+//									<div class="col-sm-9">
+//										<select type="text" class="form-control" name="currency_id"></select>
+//									</div>
+//								</div>
+//								<div class="form-group">
+//									<label for="account" class="col-sm-3 control-label">订单类型</label>
+//									<div class="col-sm-9">
+//										<select type="text" class="form-control" name="type">
+//											<option value="1">支出</option>
+//											<option value="2">收入</option>
+//										</select>
+//									</div>
+//
+//								</div>
+//							</div>
+//						</form>
+//					</div>
+//					<div class="modal-footer">
+//						<button type="button" class="btn btn-primary save">添加</button>
+//					</div>
+//				</div>
+//			</div>
+//		</div>
+//		<div class="modal fade" id="order_edit_modal">
+//			<div class="modal-dialog">
+//				<div class="modal-content">
+//					<div class="modal-header">
+//						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+//                						<span aria-hidden="true">&times;</span>
+//									</button>
+//						<h4 class="modal-title">订单编辑</h4>
+//					</div>
+//					<div class="modal-body">
+//						<form class="form-horizontal">
+//							<div class="box-body">
+//								<input type="hidden" name="id" />
+//								<div class="form-group">
+//									<label for="account" class="col-sm-3 control-label">所属项目</label>
+//									<div class="col-sm-9">
+//										<select type="text" class="form-control p_id" name="p_id"></select>
+//									</div>
+//								</div>
+//								<div class="form-group">
+//									<label for="account" class="col-sm-3 control-label">所属项目类型</label>
+//									<div class="col-sm-9">
+//										<select type="text" class="form-control t_id" name="t_id"></select>
+//									</div>
+//								</div>
+//								<div class="form-group">
+//									<label for="account" class="col-sm-3 control-label">订单名称</label>
+//									<div class="col-sm-9">
+//										<input type="text" class="form-control" name="order_name">
+//									</div>
+//								</div>
+//								<div class="form-group">
+//									<label for="account" class="col-sm-3 control-label">金额</label>
+//									<div class="col-sm-9">
+//										<input type="text" class="form-control" name="money">
+//									</div>
+//								</div>
+//								<div class="form-group">
+//									<label  class="col-sm-3 control-label">照片</label>
+//
+//									<div class="col-sm-9">
+//										<label for="editPicInput" style="width:100%;height:150px;">
+//											<img src = "img/add.png" id="editPic" style="display:block;max-height:100%;">
+//										</label>
+//										<input type="file" id="editPicInput" class="pic" accept="image/*" capture="camera" style="display:none;">
+//										<input type="hidden" class="picId" />
+//										<!--<i>*上传照片</i>-->
+//									</div>
+//								</div>
+//								<div class="form-group">
+//									<label for="account" class="col-sm-3 control-label">修改附件</label>
+//									<div class="col-sm-9">
+//										<input type="file" class="form-control" name="fujian">
+//										<input type="hidden" class="addfujianId" />
+//									</div>
+//								</div>
+//								<div class="form-group">
+//									<label for="account" class="col-sm-3 control-label">币种</label>
+//									<div class="col-sm-9">
+//										<select type="text" class="form-control" name="currency_id"></select>
+//									</div>
+//								</div>
+//								<div class="form-group">
+//									<label for="account" class="col-sm-3 control-label">订单类型</label>
+//									<div class="col-sm-9">
+//										<select type="text" class="form-control" name="type">
+//											<option value="1">支出</option>
+//											<option value="2">收入</option>
+//										</select>
+//									</div>
+//
+//								</div>
+//								
+//							</div>
+//						</form>
+//					</div>
+//					<div class="modal-footer">
+//						<button type="button" class="btn btn-primary save">修改</button>
+//					</div>
+//				</div>
+//			</div>
+//		</div>
+//		<div class="modal fade" id="order_del_modal">
+//			<div class="modal-dialog">
+//				<div class="modal-content">
+//					<div class="modal-header">
+//						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+//                						<span aria-hidden="true">&times;</span>
+//									</button>
+//						<h4 class="modal-title">类型删除</h4>
+//					</div>
+//					<div class="modal-body">
+//						<form class="form-horizontal">
+//							<div class="box-body">
+//								<input type="hidden" name="id" />
+//								<p>是否删除订单“<span name="order_name"></span>”</p>
+//							</div>
+//						</form>
+//					</div>
+//					<div class="modal-footer">
+//						<button type="button" class="btn btn-primary save">删除</button>
+//					</div>
+//				</div>
+//			</div>
+//		</div>
